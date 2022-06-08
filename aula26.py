@@ -17,14 +17,18 @@ for indice, numero in enumerate(range(10, 1, -1)):
 digito1 = '0' if (11 - (soma % 11)) > 9 else str(11 - (soma % 11))
 cpf_verificado += digito1
 
+lista, soma = [], 0
+
 for indice, numero in enumerate(range(11, 1, -1)):
     lista.append(int(cpf_verificado[indice]) * numero)
     soma += lista[indice]
 
+
+
 digito2 = '0' if (11 - (soma % 11)) > 9 else str(11 - (soma % 11))
 cpf_verificado += digito2
 
-sequencia = True if cpf_verificado != "00000000000" else False
+sequencia = True if cpf_verificado != cpf[0] * 11 else False
 
 if cpf_verificado == cpf and sequencia:
     print(cpf, '//', cpf_verificado)
